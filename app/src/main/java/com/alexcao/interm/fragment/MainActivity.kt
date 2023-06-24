@@ -2,11 +2,11 @@ package com.alexcao.interm.fragment
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.PersistableBundle
+import android.util.Log
 import android.widget.Button
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), IMessage {
 
     private lateinit var button: Button
 
@@ -40,7 +40,8 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
+
+    override fun onSend(message: String) {
+        Log.d("MainActivity", message)
     }
 }

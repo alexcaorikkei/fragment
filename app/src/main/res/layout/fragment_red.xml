@@ -1,15 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:background="#FF0000"
+    android:orientation="vertical"
     android:layout_height="match_parent"
     tools:context=".RedFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <EditText
+        android:autofillHints="name"
+        android:inputType="none"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="100dp"
+        android:hint="@string/enter_text_here"
+        android:id="@+id/et" />
 
-</FrameLayout>
+    <Button
+        android:id="@+id/btn"
+        android:text="@string/send"
+        android:layout_height="50dp"
+        android:layout_width="100dp"
+        android:layout_gravity="center"/>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

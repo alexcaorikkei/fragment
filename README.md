@@ -64,3 +64,41 @@ supportFragmentManager.beginTransaction().add(
 
 **commit()**: Sau khi đã thực hiện các thao tác, **commit** để **FragmentTransaction** thực hiện.
 
+# Truyền dữ liệu giữa fragment và activity
+Để truyền dữ liệu từ fragment sang activity chúng ta tạo một interface
+
+```kotlin
+interface OnMessageSendListener {  
+    fun onMessageSend(message: String)  
+}
+```
+
+Sau đó fragment sẽ gọi hàm này để truyền dữ liệu
+
+```kotlin
+mButtonSend.setOnClickListener {  
+    mOnMessageSendListener.onMessageSend(mTextMessage.text.toString())  
+}
+```
+
+Activity sẽ implement interface này và nhận dữ liệu, có thể truyền qua fragment khác nếu cần thiết
+
+```kotlin
+class MainActivity : AppCompatActivity(), OnMessageSendListener {  
+  
+    override fun onCreate(savedInstanceState: Bundle?) {  
+        super.onCreate(savedInstanceState)  
+        setContentView(R.layout.activity_main)  
+    }  
+  
+    override fun onMessageSend(message: String) {  
+        val bundle = Bundle()  
+        bundle.putString("message", message)  
+        val transaction = this.supportFragmentManager.beginTransaction()  
+        val secondFragment = SecondFragment()  
+        secondFragment.arguments = bundle  
+        transaction.replace(R.id.fragment_container_view, secondFragment)  
+        transaction.commit()  
+    }  
+}
+```
