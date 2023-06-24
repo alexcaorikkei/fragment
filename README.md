@@ -55,8 +55,12 @@ supportFragmentManager.beginTransaction().add(
 ```
 ### FragmentTransaction
 **add()**: Khi FrameLayout còn rỗng, chúng ta có thể dùng hàm này để thêm một fragment vào. Nếu tiếp tục thêm khi fragment đã tồn tại thì 2 fragment được chạy song song và fragment sau sẽ che đi fragment trước.
+
 **replace()**: Thay thế một fragment có sẵn bằng một fragment khác
+
 **remove()**: Gỡ fragment ra khỏi layout nào đó
+
 **accToBackStack()**: Nếu phương thức được gọi trước khi commit, fragment hiện tại sẽ được thêm vào back stack và không bị xóa khỏi hệ thống. Nếu người dùng bấm nút back sau đó, fragment có thể quay lại.
+
 **commit()**: Sau khi đã thực hiện các thao tác, **commit** để **FragmentTransaction** thực hiện.
 
